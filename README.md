@@ -7,7 +7,7 @@
 
 ---
 
-![Dashboard Preview](./screenshots/dashboard-preview.png)
+![Dashboard Preview](./screenshots/dashboard_preview.png)
 
 An interactive **Power BI dashboard** analyzing **Top Spotify Songs** across 73 countries. It provides insights into **song popularity trends, audio features, and artist performance** using a **star-schema data model** built in SQL Server.
 
