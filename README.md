@@ -100,12 +100,17 @@ Star schema ensures fast aggregation and easy filtering.
 ## 📐 Key DAX Measures
 
 ```DAX
-Unique Tracks = DISTINCTCOUNT(FactSpotifyHistory[TrackID])
-Unique Artists = DISTINCTCOUNT(FactSpotifyHistory[ArtistID])
-Explicit % = DIVIDE(
-    CALCULATE(COUNTROWS(FactSpotifyHistory), FactSpotifyHistory[IsExplicit] = TRUE()),
-    COUNTROWS(FactSpotifyHistory)
+Unique Tracks = DISTINCTCOUNT ( 'Spotify Facts'[TrackKey] )
+Unique Artists = DISTINCTCOUNT('Spotify Facts'[ArtistKey])
+Count Explicit = CALCULATE(
+  COUNTROWS('Spotify Facts'),
+  'Spotify Facts'[IsExplicit] = TRUE()
 )
+Explicit % = DIVIDE(
+  [Count Explicit],
+  COUNTROWS('Spotify Facts'),
+  0
+)*100
 ```
 
 Additional measures: **Danceability, Energy, Valence, Acousticness, Liveness** for feature analysis.
