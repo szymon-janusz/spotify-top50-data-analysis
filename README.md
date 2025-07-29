@@ -145,13 +145,17 @@ git clone https://github.com/yourusername/spotify-analytics-dashboard.git
 cd spotify-analytics-dashboard
 ```
 
-### 2. Prepare Database
+### 2. Download Dataset
+
+* Go to [Kaggle Dataset](https://www.kaggle.com/datasets/asaniczka/top-spotify-songs-in-73-countries-daily-updated) and download the `.csv` file.
+
+### 3. Prepare Database
 
 * Load `top_spotify_songs.csv` into SQL Server
 * Run `01_create_tables.sql` and `02_insert_data.sql`
 * Optionally, create analytical views using `03_views_measures.sql`
 
-### 3. Open Power BI Dashboard
+### 4. Open Power BI Dashboard
 
 * Open `spotify_dashboard.pbix`
 * Connect to your SQL Server database
