@@ -143,23 +143,27 @@ Additional measures: **Danceability, Energy, Valence, Acousticness, Liveness** f
 ```bash
 git clone https://github.com/yourusername/spotify-analytics-dashboard.git
 cd spotify-analytics-dashboard
-```
+````
 
-### 2. Download Dataset
+### 2. (If needed) Download Dataset
 
-* Go to [Kaggle Dataset](https://www.kaggle.com/datasets/asaniczka/top-spotify-songs-in-73-countries-daily-updated) and download the `.csv` file.
+* Download the `top_spotify_songs.csv` from [Kaggle Dataset Link](https://www.kaggle.com/datasets/asaniczka/top-spotify-songs-in-73-countries-daily-updated) if you want to re-import or refresh tables via SQL.
 
-### 3. Prepare Database
+### 3. Open Power BI Dashboard
 
-* Load `top_spotify_songs.csv` into SQL Server
-* Run `01_create_tables.sql` and `02_insert_data.sql`
-* Optionally, create analytical views using `03_views_measures.sql`
+* Open `powerbi/spotify_dashboard.pbix` in **Power BI Desktop**.
+* Since the project is built in **Import Mode**, **all required data is already embedded in the `.pbix` file**-**no connection to SQL Server is needed** for viewing or exploring.
 
-### 4. Open Power BI Dashboard
+### 4. Optional: Refresh Data via SQL
 
-* Open `spotify_dashboard.pbix`
-* Connect to your SQL Server database
-* Refresh visuals and explore interactivity
+* If you wish to refresh or rebuild the dashboard manually:
+
+  * Import the `.csv` into SQL Server.
+  * Run `sql/01_create_tables.sql` and `02_insert_data.sql` to build the star schema.
+  * Run `03_views_measures.sql` if you prefer a view-based model.
+  * Then open Power BI and refresh the data model to pull updated data.
+
+Enjoy exploring the dashboard immediately - no SQL Server setup required for regular viewing!
 
 ---
 
